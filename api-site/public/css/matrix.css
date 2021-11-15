@@ -1,0 +1,322 @@
+/* configurando o navegador */
+*, body, html {
+    padding: 0;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+ a:visited {
+     color: #ffffff;
+ }
+
+ /* quando o ponteiro do mouse passa no link */
+ a:hover {
+     color: #ffffff;
+ }
+
+ /* quando o link for selecionado */
+ a:active {
+     color: #ffffff;
+}
+
+/* configurando o navegador */
+
+/* Aqui começa o header */
+.header {
+    background-color: black;
+    
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+
+.img_logo {
+    height: 50px;
+    margin-right: 50px;
+    border-radius: 2px;
+
+}
+
+.ipt_pesquisa {
+    width: 600px;
+    height: 40px;
+
+    padding-left: 40px;
+    border-radius: 10px;
+
+}
+
+.links {
+    display: flex;
+    
+}
+
+.nav-item {
+    margin: 0 30px;
+}
+
+/* Aqui termina o header */
+
+/* Formulario Login e Cadastro */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+.modal:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.fechar {
+  position: absolute;
+  width: 30px;
+  right: -5px;
+  top: -10px;
+  text-align: center;
+  line-height: 30px;
+  margin-top: 5px;
+  background: #ff4545;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #8d0000;
+}
+
+.form_conteudo {
+    position: relative;
+    background-color: white;
+    display: flex;
+    height: 450px;
+    width: 350px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.form_conteudo .div_logo_form {
+    margin: 50px auto 60px auto;
+}
+
+.form_conteudo .div_ipt_form {
+    margin: 0 auto 20px auto;
+}
+
+.form_conteudo .div_ipt_form p{
+    margin: 5px auto 0 auto;
+}
+
+.ipt_form {
+    height: 28px;
+    width: 180px;
+    margin: 5px 0;
+    padding-left: 12px;
+    border-radius: 8px;
+    
+}
+
+.botao_form {
+    margin: 0 auto;
+    height: 30px;
+    width: 100px;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    border: 2px red solid;
+    cursor: pointer;
+    font-size: 20px;
+    
+}
+
+.botao_cadastrar {
+    width: 120px;
+}
+
+.clique_cadastrar {
+    margin: 10px auto;
+}
+
+.div_cadastro {
+    height: 530px;
+}
+
+.loading-div {
+    width: 50px;
+    /* border: 3px solid pink; */
+    margin: auto;
+    display: none;
+}
+  
+.loading-div img {
+    height: 50px;
+    width: 50px;
+}
+/* Formulario Login e Cadastro */
+
+/* Aqui começa o Banner */
+.banner {
+    justify-content: center;
+    height: 80%;
+    width: 100%;
+
+}
+
+.banner a {
+    color: #000000;
+}
+
+.categoria {
+    height: 20px;
+    width: 80%;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 100px;
+    text-align: center;
+    filter: drop-shadow(0px 0.5px 9px rgba(0, 0, 0, 0.5));
+}
+
+
+.banner-item {
+    margin-right: 25px;
+}
+
+.titulo {
+    justify-content: center;
+    margin: auto;
+    display: flex;    
+}
+
+.select_tops {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 1px;
+    margin: auto;
+    border: 0;
+    text-align: center;    
+    color: #000000;
+}
+
+.conteudo {
+    align-items: center;
+    margin-top: 10px;
+    justify-content: center;
+    justify-content: space-evenly;
+    overflow: hidden;    
+}
+
+.conteudo .img_sessoes {
+    height: 120px;
+    display: flex;
+    margin-bottom: 8px;
+    max-width: 100%;
+    cursor: pointer;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    border-radius: 2px;
+}
+
+.img_sessoes:hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.primeira_linha {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.box {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.selecao {
+    margin-left: 70px;
+    margin-bottom: 10px;
+}
+
+.avaliacao {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    
+}
+.text_avaliacao {
+    margin: auto;
+    width: 70px;
+
+}
+
+.img_avaliacao {
+    height: 20px;
+    cursor: pointer;
+}
+/* Aqui termina o banner */
+
+.footer {
+    background-color: black;
+    height: 150px;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+}
+
+.div_ajuda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.redes {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+.redes a {
+    display: flex;
+    align-items: center;
+
+}
+
+.redes img {
+    height: 30px;
+    margin: 5px 10px ;
+}
