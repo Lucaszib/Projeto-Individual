@@ -7,20 +7,52 @@
 
 a {
     text-decoration: none;
-    color: white;
 }
- a:visited {
+
+a:visited {
+    color: black;
+}
+
+/* quando o ponteiro do mouse passa no link */
+a:hover {
+    color: black;
+}
+
+/* quando o link for selecionado */
+a:active {
+    color: black;
+}
+
+.header a {
+    color: #ffffff;
+}
+
+.header a:visited {
      color: #ffffff;
  }
 
  /* quando o ponteiro do mouse passa no link */
- a:hover {
+.header a:hover {
      color: #ffffff;
  }
 
  /* quando o link for selecionado */
- a:active {
+ .header a:active {
      color: #ffffff;
+}
+
+.footer a:visited {
+    color: #ffffff;
+}
+
+/* quando o ponteiro do mouse passa no link */
+.footer a:hover {
+    color: #ffffff;
+}
+
+/* quando o link for selecionado */
+.footer a:active {
+    color: #ffffff;
 }
 
 /* configurando o navegador */
@@ -66,117 +98,7 @@ a {
 
 /* Aqui termina o header */
 
-/* Formulario Login e Cadastro */
-.modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: rgba(0,0,0,0.8);
-    z-index: 99999;
-    opacity:0;
-    -webkit-transition: opacity 400ms ease-in;
-    -moz-transition: opacity 400ms ease-in;
-    transition: opacity 400ms ease-in;
-    pointer-events: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-  }
-
-.modal:target {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.fechar {
-  position: absolute;
-  width: 30px;
-  right: -5px;
-  top: -10px;
-  text-align: center;
-  line-height: 30px;
-  margin-top: 5px;
-  background: #ff4545;
-  border-radius: 5px;
-  font-size: 16px;
-  color: #8d0000;
-}
-
-.form_conteudo {
-    position: relative;
-    background-color: white;
-    display: flex;
-    height: 450px;
-    width: 350px;
-    flex-direction: column;
-    flex-wrap: wrap;
-    border-radius: 5px;
-    font-size: 18px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.form_conteudo .div_logo_form {
-    margin: 50px auto 60px auto;
-}
-
-.form_conteudo .div_ipt_form {
-    margin: 0 auto 20px auto;
-}
-
-.form_conteudo .div_ipt_form p{
-    margin: 5px auto 0 auto;
-}
-
-.ipt_form {
-    height: 28px;
-    width: 180px;
-    margin: 5px 0;
-    padding-left: 12px;
-    border-radius: 8px;
-    
-}
-
-.botao_form {
-    margin: 0 auto;
-    height: 30px;
-    width: 100px;
-    background-color: black;
-    color: white;
-    border-radius: 8px;
-    border: 2px red solid;
-    cursor: pointer;
-    font-size: 20px;
-    
-}
-
-.botao_cadastrar {
-    width: 120px;
-}
-
-.clique_cadastrar {
-    margin: 10px auto;
-}
-
-.div_cadastro {
-    height: 530px;
-}
-
-.loading-div {
-    width: 50px;
-    /* border: 3px solid pink; */
-    margin: auto;
-    display: none;
-}
-  
-.loading-div img {
-    height: 50px;
-    width: 50px;
-}
-/* Formulario Login e Cadastro */
 
 /* Aqui começa o Banner */
 .banner {
@@ -230,7 +152,6 @@ a {
 }
 
 .conteudo .img_sessoes {
-    height: 120px;
     display: flex;
     margin-bottom: 8px;
     max-width: 100%;
@@ -239,6 +160,8 @@ a {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
     border-radius: 2px;
+    height: 140px;
+    object-fit: contain;
 }
 
 .img_sessoes:hover {
@@ -265,8 +188,9 @@ a {
 }
 
 .avaliacao {
+    width: 210px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     text-align: center;
     
@@ -286,6 +210,7 @@ a {
 .footer {
     background-color: black;
     height: 150px;
+    color: white;
 }
 
 .container {
@@ -293,7 +218,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    color: white;
+
 }
 
 .div_ajuda {

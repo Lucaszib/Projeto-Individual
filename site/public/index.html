@@ -12,7 +12,7 @@
 
     <!-- links dos icons e css -->
     <link rel="stylesheet" href="./css/matrix.css">
-
+    <link rel="stylesheet" href="./css/formulario.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
@@ -30,13 +30,12 @@
             
         </div>
         <div class="links">
-            <ul class="nav-item"><a href=""> Inicio </a></ul>
+            <ul class="nav-item"><a href="./index.html"> Inicio </a></ul>
             <ul class="nav-item"><a href="#abrirLogin"> Login </a></ul>
             <ul class="nav-item"><a href="#abrirCadastro" > Cadastro </a></ul>
         </div>
     </div>
 
-    <div class="banner">
 
 <!-- Login -->
         <div id="abrirLogin" class="modal">
@@ -48,23 +47,20 @@
                 </div>
 
                 <div class="div_ipt_form">
-                    <div>Email:</div>
-                    <input id="email_input" class="ipt_form" type="email"  placeholder="joao@provedor.com">
-                </div>
+                    <div>
+                        <p>Email:</p>
+                        <input id="email_login" class="ipt_form" type="email" placeholder="joao@provedor.com">
 
-                <div class="div_ipt_form">
-                    <div>Senha:</div>
-                    <input id="senha_input" class="ipt_form" type="password" placeholder="senha123">
+                        <p>Senha:</p>
+                        <input id="senha_login" class="ipt_form" type="password" placeholder="senha123">
+                    </div>
                 </div>
-                    
+                <a href="./trocar_senha.html"><p class="esqueci_senha">Esqueci minha senha </p></a>
+
                 <button class="botao_form" onclick="entrar()">Entrar</button>
-                <div class="clique_cadastrar">Não tem cadastro? <a href=""> Clique aqui </a></div>
-
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
+                <div class="clique_cadastrar">Não tem cadastro? <a href="#abrirCadastro"> Clique aqui </a></div>
+                
             </div>
-            
         </div>
 
 <!-- Cadastro -->
@@ -77,17 +73,43 @@
                 </div>
 
                 <div class="div_ipt_form">
-                    <p>Nome:</p>
-                    <input id="nome_input" class="ipt_form" type="text" placeholder="joao@provedor.com">
-                    
-                    <p>Email:</p>
-                    <input id="email_input" class="ipt_form" type="email" placeholder="joao@provedor.com">
-                
-                    <p>Senha:</p>
-                    <input id="senha_input" class="ipt_form" type="password" placeholder="senha123">
-                    
-                    <p>Confirme sua senha:</p>
-                    <input id="confirmacao_senha_input" class="ipt_form" type="password" placeholder="senha123">
+                    <div class="div_cadastro_left">
+                        <p>Nome:</p>
+                        <input id="nome_cadastro" class="ipt_form" type="text" placeholder="Pedro">
+                        
+                        <p>Genero:</p>
+                        <select id="genero_cadastro" class="ipt_form">
+                            <option value=""> - Selecione uma opcao - </option>
+                            <option value="M"> Masculino </option>
+                            <option value="F"> Feminino </option>
+                            <option value="N"> Neutro </option>
+                        </select>
+                        
+                        <p>Filme preferido:</p>
+                        <select id="filme_cadastro" class="ipt_form">
+                            <datalist id="algo">
+                                <option value="">Informe seu Filme favorito</option>
+                                <option value="0">Não tenho</option>
+                                <option value="1">A Guerra do Amanhã</option>
+                                <option value="2">Esquadrão Suicida</option>
+                                <option value="3">Eternos</option>
+                                <option value="4">Liga da Justiça: SnyderCut</option>
+                            </datalist>
+                        </select>
+
+                            
+                    </div>
+
+                    <div>
+                        <p>Email:</p>
+                        <input id="email_cadastro" class="ipt_form" type="email" placeholder="joao@provedor.com">
+
+                        <p>Senha:</p>
+                        <input id="senha_cadastro" class="ipt_form" type="password" placeholder="senha123">
+                        
+                        <p>Confirme sua senha:</p>
+                        <input id="confirmacao_senha_cadastro" class="ipt_form" type="password" placeholder="senha123">
+                    </div>
                 </div>
 
                 <button class="botao_form botao_cadastrar" onclick="cadastrar()">Cadastrar</button>
@@ -95,7 +117,8 @@
             </div>
         </div>
 
-
+<!-- Banner -->
+    <div class="banner">
         <div class="categoria">
             <ul class="banner-item"><a href="">Filmes</a></ul>
 
@@ -231,7 +254,7 @@
                 </div>
 
                 <div class="box">
-                    <img class="img_sessoes" src="./css/src/conteudos/os incriveis 2.jpg" alt="">
+                    <img class="img_sessoes" src="./css/src/conteudos/luca.jpg" alt="">
                     <div class="avaliacao"> 
                         <div class="text_avaliacao"> Avaliação </div>
                         <img class="img_avaliacao" src="./css/src/star_avaliacao/star1.png" alt="">
@@ -255,7 +278,7 @@
                 </div>
 
                 <div class="box">
-                    <img class="img_sessoes" src="./css/src/conteudos/venom 2.jpg" alt="">
+                    <img class="img_sessoes" src="./css/src/conteudos/what if.jpg" alt="">
                     <div class="avaliacao"> 
                         <div class="text_avaliacao"> Avaliação </div>
                         <img class="img_avaliacao" src="./css/src/star_avaliacao/star1.png" alt="">
@@ -306,43 +329,44 @@
 </body>
 </html>
 <script>
-
 function cadastrar() {
-    aguardar();
+    // aguardar();
 
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var nomeVar = nome_cadastro.value;
+    var generoVar = genero_cadastro.value;
+    var filmeVar = filme_cadastro.value;
 
-    // if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+    var emailVar = email_cadastro.value;
+    var senhaVar = senha_cadastro.value;
+    var confirmacaoSenhaVar = confirmacao_senha_cadastro.value;
 
-    //     window.alert("Preencha todos os campos para prosseguir!");
-    //     if (nomeVar == "") {
-    //         console.log('nome está em branco')
-    //     }
-    //     if (emailVar == "") {
-    //         console.log('email está em branco')
-    //     }
-    //     if (senhaVar == "") {
-    //         console.log('senha está em branco')
-    //     }
-    //     if (confirmacaoSenhaVar == "") {
-    //         console.log('confirmacaoSenha está em branco')
-    //     }
-    //     return false;
-    // }
+    if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
 
-    // if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-    //     window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-    //     return false;
-    // }
+        window.alert("Preencha todos os campos para prosseguir!");
+        if (nomeVar == "") {
+            console.log('nome está em branco')
+        }
+        if (emailVar == "") {
+            console.log('email está em branco')
+        }
+        if (senhaVar == "") {
+            console.log('senha está em branco')
+        }
+        if (confirmacaoSenhaVar == "") {
+            console.log('confirmacaoSenha está em branco')
+        }
+        return false;
+    }
 
-    // if (senhaVar != confirmacaoSenhaVar) {
-    //     window.alert("As senhas inseridas devem ser iguais para prosseguir!");
-    //     finalizarAguardar();
-    //     return false;
-    // }
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+        window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+        return false;
+    }
+
+    if (senhaVar != confirmacaoSenhaVar) {
+        window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+        return false;
+    }
 
     fetch("/usuarios/cadastrar", {
         method: "POST",
@@ -352,7 +376,9 @@ function cadastrar() {
         body: JSON.stringify({
             nomeServer: nomeVar,
             emailServer: emailVar,
-            senhaServer: senhaVar
+            senhaServer: senhaVar,
+            generoServer: generoVar,
+            filmeServer: filmeVar
         })
     }).then(function (resposta) {
 
@@ -360,7 +386,7 @@ function cadastrar() {
 
         if (resposta.ok) {
             window.alert("Cadastro realizado com sucesso!");
-            window.location = "login.html";
+            window.location = "#abrirLogin";
             limparFormulario();
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -373,10 +399,10 @@ function cadastrar() {
 }
 
 function entrar() {
-    aguardar();
+    // aguardar();
 
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
+    var emailVar = email_login.value;
+    var senhaVar = senha_login.value;
 
     console.log("FORM LOGIN: ", emailVar);
     console.log("FORM SENHA: ", senhaVar);
@@ -415,7 +441,8 @@ function entrar() {
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
 
-                
+                window.location = "./dashboard/cards.html";
+                    
 
             });
 
@@ -434,5 +461,17 @@ function entrar() {
 
     return false;
 }
+
+function limparFormulario() {
+    nome_cadastro.value = '';
+    genero_cadastro.value = '';
+    filme_cadastro.value = '';
+
+    email_cadastro.value = ''; 
+    senha_cadastro.value = '';
+    confirmacao_senha_cadastro.value = '';
+};
+
+
 
 </script>
