@@ -13,17 +13,16 @@
     <!-- links dos icons e css -->
     <link rel="stylesheet" href="./css/matrix.css">
     <link rel="stylesheet" href="./css/formulario.css">
-    <link rel="stylesheet" href="./css/trocar_senha.css">
-    
+    <link rel="stylesheet" href="./css/quem_somos.css">
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 
 </head>
 <body>
-
-<!-- Header -->
-<div class="header">
+    
+    <div class="header">
         <div class="logo">
             <a href="./index.html"><img class="img_logo" src="./css/src/logo_inicial.png" alt=""></a>
         </div>
@@ -37,60 +36,60 @@
             <ul class="nav-item"><a href="#abrirLogin"> Login </a></ul>
             <ul class="nav-item"><a href="#abrirCadastro" > Cadastro </a></ul>
         </div>
-</div>
+    </div>
+
 
 <!-- Login -->
-<div id="abrirLogin" class="modal">
-    <div class="form_conteudo">
-        <a href="#fecharLogin" title="Fechar" class="fechar">x</a>
+        <div id="abrirLogin" class="modal">
+            <div class="form_conteudo">
+                <a href="#fecharLogin" title="Fechar" class="fechar">x</a>
 
-        <div class="div_logo_form">
-            <img class="logo_form" src="./css/src/logo_inicial.png" alt="">
-        </div>
+                <div class="div_logo_form">
+                    <img class="logo_form" src="./css/src/logo_inicial.png" alt="">
+                </div>
 
-        <div class="div_ipt_form">
-            <div>
-                <p>Email:</p>
-                <input id="email_login" class="ipt_form" type="email" placeholder="joao@provedor.com">
+                <div class="div_ipt_form">
+                    <div>
+                        <p>Email:</p>
+                        <input id="email_login" class="ipt_form" type="email" placeholder="joao@provedor.com">
 
-                <p>Senha:</p>
-                <input id="senha_login" class="ipt_form" type="password" placeholder="senha123">
+                        <p>Senha:</p>
+                        <input id="senha_login" class="ipt_form" type="password" placeholder="senha123">
+                    </div>
+                </div>
+                <a href="./trocar_senha.html"><p class="esqueci_senha">Esqueci minha senha </p></a>
+
+                <button class="botao_form" onclick="entrar()">Entrar</button>
+                <div class="clique_cadastrar">Não tem cadastro? <a href="#abrirCadastro"> Clique aqui </a></div>
+                
             </div>
         </div>
-        <a href="./trocar_senha.html"><p class="esqueci_senha">Esqueci minha senha </p></a>
-
-        <button class="botao_form" onclick="entrar()">Entrar</button>
-        <div class="clique_cadastrar">Não tem cadastro? <a href="#abrirCadastro"> Clique aqui </a></div>
-        
-    </div>
-</div>
 
 <!-- Cadastro -->
-<div id="abrirCadastro" class="modal">
-    <div class="form_conteudo div_cadastro">
-        <a href="#fecharCadastro" title="Fechar" class="fechar">x</a>
+        <div id="abrirCadastro" class="modal">
+            <div class="form_conteudo div_cadastro">
+                <a href="#fecharCadastro" title="Fechar" class="fechar">x</a>
 
-        <div class="div_logo_form">
-            <img class="logo_form" src="./css/src/logo_inicial.png" alt="">
-        </div>
+                <div class="div_logo_form">
+                    <img class="logo_form" src="./css/src/logo_inicial.png" alt="">
+                </div>
 
-        <div class="div_ipt_form">
-            <div class="div_cadastro_left">
-                <p>Nome:</p>
-                <input id="nome_cadastro" class="ipt_form" type="text" placeholder="Pedro">
-                
-                <p>Genero:</p>
-                <select id="genero_cadastro" class="ipt_form">
-                    <option value=""> - Selecione uma opcao - </option>
-                    <option value="M"> Masculino </option>
-                    <option value="F"> Feminino </option>
-                    <option value="N"> Neutro </option>
-                </select>
-                
-                <p>Filme preferido:</p>
-                <select id="filme_cadastro" class="ipt_form">
-                    <datalist id="algo">
-                        <option value="">Informe seu Filme favorito</option>
+                <div class="div_ipt_form">
+                    <div class="div_cadastro_left">
+                        <p>Nome:</p>
+                        <input id="nome_cadastro" class="ipt_form" type="text" placeholder="Pedro">
+                        
+                        <p>Genero:</p>
+                        <select id="genero_cadastro" class="ipt_form">
+                            <option value=""> - Selecione uma opcao - </option>
+                            <option value="M"> Masculino </option>
+                            <option value="F"> Feminino </option>
+                            <option value="N"> Neutro </option>
+                        </select>
+                        
+                        <p>Filme preferido:</p>
+                        <select id="filme_cadastro" class="ipt_form">
+                                <option value="">Informe seu Filme favorito</option>
                                 <option value="0">Não tenho</option>
                                 <option value="1">A Guerra do Amanhã</option>
                                 <option value="2">Esquadrão Suicida</option>
@@ -110,52 +109,88 @@
                                 <option value="16">Viuva Negra</option>
                                 <option value="17">Shang Chi: A Lenda dos Dez Anéis</option>
                                 <option value="18">Raya</option>
-                    </datalist>
-                </select>
+                        </select>
 
-                    
-            </div>
+                            
+                    </div>
 
-            <div>
-                <p>Email:</p>
-                <input id="email_cadastro" class="ipt_form" type="email" placeholder="joao@provedor.com">
+                    <div>
+                        <p>Email:</p>
+                        <input id="email_cadastro" class="ipt_form" type="email" placeholder="joao@provedor.com">
 
-                <p>Senha:</p>
-                <input id="senha_cadastro" class="ipt_form" type="password" placeholder="senha123">
-                
-                <p>Confirme sua senha:</p>
-                <input id="confirmacao_senha_cadastro" class="ipt_form" type="password" placeholder="senha123">
-            </div>
-        </div>
-
-        <button class="botao_form botao_cadastrar" onclick="cadastrar()">Cadastrar</button>
-        
-    </div>
-</div>
-
-<!-- Trocar Senha -->
-    <div class="trocar_senha">
-        <div class="form_conteudo login_trocar">
-
-            <div class="div_logo_trocar">
-                <img class="logo_form" src="./css/src/logo_inicial.png" alt="">
-            </div>
-
-            <div class="div_ipt_form">
-                <div>
-                    <p>Digite sua nova senha:</p>
-                    <input id="senha_trocar" class="ipt_form" type="text" placeholder="senha123">
-
-                    <p>Confirme sua nova senha:</p>
-                    <input id="confirmar_senha_trocar" class="ipt_form" type="text" placeholder="senha123">
-                    
-
+                        <p>Senha:</p>
+                        <input id="senha_cadastro" class="ipt_form" type="password" placeholder="senha123">
+                        
+                        <p>Confirme sua senha:</p>
+                        <input id="confirmacao_senha_cadastro" class="ipt_form" type="password" placeholder="senha123">
+                    </div>
                 </div>
-            </div>
 
-            <button class="botao_form" onclick="atualizarSenha()">Enviar</button>
-            
+                <button class="botao_form botao_cadastrar" onclick="cadastrar()">Cadastrar</button>
+                
+            </div>
         </div>
+
+<!-- Quem Somos -->
+    <div class="quem_somos">
+        <h1>Projeto Omega</h1>
+
+        <div class="caixa_texto">
+            <p>Desde cedo os filmes nos ensinam valores, transparecem sentimentos, e nos contam historias que podem ou 
+                não ter acontecido. Esse projeto é dedicado a ajudar aquelas pessoas que precisam de uma recomendação 
+                prática de filme para assistir com a família, amigos, ou até mesmo sozinho.
+                <br><br>
+            Aqui separo alguns dos filmes que fizeram parte da minha vida, e até mesmo os recomendo caso ainda não 
+                tenha assistido.
+            </p>
+        </div>
+         <br><br><br>
+        <div class="caixa_texto"> 
+            <div class="div_img_quem_somos"><img src="./css/src/quem_somos/homem_aranha.png" alt=""><div>Homem Aranha (2004)</div> </div>
+            <p>
+                Meu primeiro contato com a categoria “Super-Héroi”, foi assistindo as animações do Batman e filmes 
+                como os do Homem Aranha.
+                    <br><br><br>
+                O filme “Homem-Aranha”, estrelado pelo Tobey Maguire foi o divisor de águas em minha vida, sendo o 
+                filme que me ensinou sobre atitudes, valores, e trouxe me a frase que levo para toda a vida “Com 
+                grande poderes, vem uma grande responsabilidade”. Julgo que toda minha gentileza e bondade nasceu a 
+                partir deste momento.
+            </p>
+        </div>
+
+        <div class="caixa_texto"> 
+            <p>
+                Minha paixão pelo cinema cinematografico começou na infancia, quando meus pais compraram uma fita de 
+                video cassette com o filme do Irmão Urso, e assisti junto de meu irmão e meu melhor amigo 
+                Alison.
+                    <br><br><br>
+                É um filme que carrego em meu celular e computador, e assisto quando não estou me sentindo muito bem, 
+                ou não estou em uma boa fase.
+            </p>
+            <div class="div_img_quem_somos"><img src="./css/src/quem_somos/irmao_urso.png" alt=""> O Irmão Urso </div>        
+        </div>
+
+        <div class="caixa_texto"> 
+            <div class="div_img_quem_somos"><img src="./css/src/quem_somos/preco_amanha.png" alt=""> O Preço do Amanhã </div>
+            <p>
+                Assistindo o “O Preço do Amanhã”, aprendi a dar valor ao que se deve dar valor: ao tempo!
+                    <br>
+                Tempo é o único elemento de nossas vidas que não voltará independente do que façamos. Felizmente temos o poder de armazenar alguns dos momentos de nossas vidas em forma de memórias e lembranças. 
+                    <br><br><br>
+                A partir desse filme, comecei a repensar o tempo que passava com minha família e o tempo que dedicava para aproveitar a vida.
+            </p>
+        </div>
+
+        <div class="caixa_texto"> 
+            <p>
+                Assistindo o “O Preço do Amanhã”, aprendi a dar valor ao que se deve dar valor: ao tempo!Tempo é o único elemento de nossas vidas que não voltará independente do que façamos. Felizmente temos o poder de armazenar alguns dos momentos de nossas vidas em forma de memórias e lembranças. 
+                    <br><br><br>
+                A partir desse filme, comecei a repensar o tempo que passava com minha família e o tempo que dedicava para aproveitar a vida.
+            </p>
+            <div class="div_img_quem_somos"><img src="./css/src/quem_somos/sou_lenda.png" alt=""> Eu sou a Lenda </div>
+        </div>
+
+
     </div>
 
 <!-- Footer -->
@@ -194,119 +229,6 @@
 </body>
 </html>
 <script>
-function atualizarSenha() {
-
-    var emailVar = sessionStorage.EMAIL_USUARIO;
-    var senhaVar = senha_trocar.value;
-    var confirmacaoSenhaVar = confirmar_senha_trocar.value;
-
-    if (senhaVar == "" || confirmacaoSenhaVar == "") {
-
-        window.alert("Preencha todos os campos para prosseguir!");
-        if (senhaVar == "") {
-            console.log('senha está em branco')
-        }
-        if (confirmacaoSenhaVar == "") {
-            console.log('confirmacaoSenha está em branco')
-        }
-        return false;
-    }
-
-    if (senhaVar != confirmacaoSenhaVar) {
-        window.alert("As senhas inseridas devem ser iguais para prosseguir!");
-        return false;
-    }
-
-    fetch("/usuarios/atualizarSenha", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
-    }).then(function (resposta) {
-
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-            window.alert("Senha alterada com sucesso!");
-            window.location = "#abrirLogin";
-            limparFormulario();
-        } else {
-            throw ("Houve um erro ao tentar alterar a senha!");
-        }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-    });
-
-    return false;
-}
-
-function trocar() {
-    // aguardar();
-
-    var emailVar = email_trocar.value;
-    var filmeVar = filme_trocar.value;
-
-    console.log("FORM LOGIN: ", emailVar);
-    console.log("FORM SENHA: ", filmeVar);
-
-    // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-    if (emailVar == "" || filmeVar == "") {
-        window.alert("Preencha todos os campos para prosseguir!");
-        return false;
-    }
-
-    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-        window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-        return false;
-    }
-
-    fetch("/usuarios/trocar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            filmeServer: filmeVar
-        })
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
-
-        if (resposta.ok) {
-            console.log(resposta);
-
-            resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
-
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
-
-            window.location = "./atualizar_senha.html";
-
-            });
-
-        } else {
-
-            console.log("Houve um erro ao tentar alterar sua sneha!");
-
-            resposta.text().then(texto => {
-                console.error(texto);
-            });
-        }
-
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-
-    return false;
-}
-
 function cadastrar() {
     // aguardar();
 
@@ -418,8 +340,9 @@ function entrar() {
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
-                
-                window.location = "./dashboard/perfil.html";
+
+                window.location = "./dashboard/cards.html";
+                    
 
             });
 

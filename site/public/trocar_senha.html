@@ -24,7 +24,7 @@
 <!-- Header -->
     <div class="header">
         <div class="logo">
-            <img class="img_logo" src="./css/src/logo_inicial.png" alt="">
+            <a href="./index.html"><img class="img_logo" src="./css/src/logo_inicial.png" alt=""></a>
         </div>
         <div class="pesquisa">
             <input class="ipt_pesquisa" id="input_pesquisa" type="search" placeholder="Pesquise aqui">
@@ -133,12 +133,26 @@
 
                     <p>Qual seu filme preferido?</p>
                     <select id="filme_trocar" class="ipt_form">                        
-                            <option value="">Informe seu Filme favorito</option>
-                            <option value="0">Não tenho</option>
-                            <option value="1">A Guerra do Amanhã</option>
-                            <option value="2">Esquadrão Suicida</option>
-                            <option value="3">Eternos</option>
-                            <option value="4">Liga da Justiça: SnyderCut</option>                        
+                        <option value="">Informe seu Filme favorito</option>
+                        <option value="0">Não tenho</option>
+                        <option value="1">A Guerra do Amanhã</option>
+                        <option value="2">Esquadrão Suicida</option>
+                        <option value="3">Eternos</option>
+                        <option value="4">Liga da Justiça: SnyderCut</option>
+                        <option value="5">Alerta Vermelho</option>
+                        <option value="6">Deadpool 2</option>
+                        <option value="7">Shazam</option>
+                        <option value="8">Nobody</option>
+                        <option value="9">Lucca</option>
+                        <option value="10">Mulher Maravilha</option>
+                        <option value="11">Madagascar</option>
+                        <option value="12">Hulk</option>
+                        <option value="13">Vingadores</option>
+                        <option value="14">Esquadrão 6</option>
+                        <option value="15">Space Jam</option>
+                        <option value="16">Viuva Negra</option>
+                        <option value="17">Shang Chi: A Lenda dos Dez Anéis</option>
+                        <option value="18">Raya</option>
                     </select>
 
                 </div>
@@ -185,14 +199,11 @@
 </body>
 </html>
 <script>
-
 function trocar() {
     // aguardar();
 
     var emailVar = email_trocar.value;
     var filmeVar = filme_trocar.value;
-
-    localStorage.setItem('email',email_trocar.value);
 
     console.log("FORM LOGIN: ", emailVar);
     console.log("FORM SENHA: ", filmeVar);
@@ -392,8 +403,5 @@ function limparFormulario() {
     senha_cadastro.value = '';
     confirmacao_senha_cadastro.value = '';
 };
-
-
-
 </script>
 

@@ -74,13 +74,16 @@ select * from avaliacao;
 
 select sum(nota) as TotalFilme, fi.titulo from avaliacao av
 												join filme fi on av.fkFilme = fi.idFilme
-																		where fkFilme = 4;
+																		where fkFilme = 2;
 select * from usuario;
 select * from filme;
 
 select us.nome, fi.titulo from usuario us 
 					join filme fi on us.fkFilme = fi.idFilme;
 
-UPDATE usuario SET senha = 'lucas123' WHERE email = "lucas.lacerda@bandtec.com";
+UPDATE usuario SET senha = 'lucas123' WHERE email = 'lucas.lacerda@bandtec.com';
+
+        UPDATE usuario SET senha = md5('${senha}') WHERE email = '${email}';
+
 
 SET SQL_SAFE_UPDATES = 0;

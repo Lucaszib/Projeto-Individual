@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Projeto Omega </title>
-
     
     <!-- link do script -->
+    <script src="./js/avaliacao.js" ></script>
     <script src="./js/funcoes.js" ></script>
 
     <!-- links dos icons e css -->
@@ -19,23 +19,22 @@
 
 </head>
 <body>
-    
+<!-- Header -->
     <div class="header">
         <div class="logo">
-            <img class="img_logo" src="./css/src/logo_inicial.png" alt="">
+            <a href="./index.html"><img class="img_logo" src="./css/src/logo_inicial.png" alt=""></a>
         </div>
-        <div class="pesquisa">
-            <input class="ipt_pesquisa" id="input_pesquisa" type="search" placeholder="Pesquise aqui">
 
-            
+        <div class="pesquisa">
+            <input class="ipt_pesquisa" id="input_pesquisa" oninput="pesquisar()" type="search" placeholder="Pesquise aqui">
         </div>
+
         <div class="links">
             <ul class="nav-item"><a href="./index.html"> Inicio </a></ul>
             <ul class="nav-item"><a href="#abrirLogin"> Login </a></ul>
             <ul class="nav-item"><a href="#abrirCadastro" > Cadastro </a></ul>
         </div>
     </div>
-
 
 <!-- Login -->
         <div id="abrirLogin" class="modal">
@@ -94,6 +93,20 @@
                                 <option value="2">Esquadrão Suicida</option>
                                 <option value="3">Eternos</option>
                                 <option value="4">Liga da Justiça: SnyderCut</option>
+                                <option value="5">Alerta Vermelho</option>
+                                <option value="6">Deadpool 2</option>
+                                <option value="7">Shazam</option>
+                                <option value="8">Nobody</option>
+                                <option value="9">Lucca</option>
+                                <option value="10">Mulher Maravilha</option>
+                                <option value="11">Madagascar</option>
+                                <option value="12">Hulk</option>
+                                <option value="13">Vingadores</option>
+                                <option value="14">Esquadrão 6</option>
+                                <option value="15">Space Jam</option>
+                                <option value="16">Viuva Negra</option>
+                                <option value="17">Shang Chi: A Lenda dos Dez Anéis</option>
+                                <option value="18">Raya</option>
                             </datalist>
                         </select>
 
@@ -141,7 +154,7 @@
             <div class="primeira_linha">
                 <div class="box">
                     <img class="img_sessoes" src="./css/src/conteudos/A guerra do amanha.jpg" alt="">
-                    <div class="avaliacao"> 
+                    <div class="avaliacao">
                         <div class="text_avaliacao"> Avaliação </div>
                         <img class="img_avaliacao" src="./css/src/star_avaliacao/star1.png" alt="">
                         <img class="img_avaliacao" src="./css/src/star_avaliacao/star1.png" alt="">
@@ -152,7 +165,7 @@
                 </div>
                 
                 <div class="box">
-                    <img class="img_sessoes" src="./css/src/conteudos/esquadrao suicida.jpg" alt="">
+                    <img id="" class="img_sessoes" src="./css/src/conteudos/esquadrao suicida.jpg" alt="">
                     <div class="avaliacao"> 
                         <div class="text_avaliacao"> Avaliação </div>
                         <img class="img_avaliacao" src="./css/src/star_avaliacao/star1.png" alt="">
@@ -294,6 +307,7 @@
         
     </div>
 
+<!-- Footer -->
     <div class="footer">
         <div class="container">
             <div class="div_ajuda">
@@ -306,7 +320,7 @@
             <a href="">Regulamentos</a>
             <a href="">Políticas de Privacidade</a>
             <a href="">Termos de Uso</a>
-            <a href="">Quem somos</a>
+            <a href="./quem_somos.html">Quem somos</a>
 
             <div class="redes">
                 <a href=""><img src="./css/src/logo_instagram.png" alt="">
@@ -329,6 +343,130 @@
 </body>
 </html>
 <script>
+function visualizar() {
+    var senhaVar = senha_login.value;
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+    if (emailVar == "" || senhaVar == "") {
+        window.alert("Preencha todos os campos para prosseguir!");
+        return false;
+    }
+
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+        window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+        return false;
+    }
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+
+                window.location = "./dashboard/cards.html";
+                    
+
+            });
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+}
+
+function avaliar() {
+
+    var filmeVar = filme_cadastro.value;
+    var idusuarioVar = idUsuario
+
+    if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+
+        window.alert("Preencha todos os campos para prosseguir!");
+        if (nomeVar == "") {
+            console.log('nome está em branco')
+        }
+        if (emailVar == "") {
+            console.log('email está em branco')
+        }
+        if (senhaVar == "") {
+            console.log('senha está em branco')
+        }
+        if (confirmacaoSenhaVar == "") {
+            console.log('confirmacaoSenha está em branco')
+        }
+        return false;
+    }
+
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+        window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+        return false;
+    }
+
+    if (senhaVar != confirmacaoSenhaVar) {
+        window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+        return false;
+    }
+
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar,
+            generoServer: generoVar,
+            filmeServer: filmeVar
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            window.alert("Cadastro realizado com sucesso!");
+            window.location = "#abrirLogin";
+            limparFormulario();
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
+
+}
 function cadastrar() {
     // aguardar();
 
@@ -471,7 +609,4 @@ function limparFormulario() {
     senha_cadastro.value = '';
     confirmacao_senha_cadastro.value = '';
 };
-
-
-
 </script>

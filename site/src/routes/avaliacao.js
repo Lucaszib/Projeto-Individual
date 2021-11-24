@@ -27,8 +27,12 @@ router.post("/trocar", function (req, res) {
     usuarioController.trocar(req, res);
 });
 
-router.post("/trocar", function (req, res) {
-    usuarioController.trocar(req, res);
+router.post("/avaliar", function (req, res) {
+    usuarioController.avaliar(req, res);
+});
+
+router.post("/visualizar", function (req, res) {
+    usuarioController.visualizar(req, res);
 });
 
 module.exports = router;
