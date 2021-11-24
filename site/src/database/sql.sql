@@ -1,5 +1,5 @@
 /* para workbench - local - desenvolvimento */
-CREATE DATABASE omega;
+CREATE DATABASE if not exists omega;
 USE omega;
 
 CREATE TABLE filme (
@@ -52,6 +52,18 @@ create TABLE avaliacao (
     primary key (fkFilme, fkUsuario)
 );
 
+insert into usuario (nome, email, senha, fkFilme)
+values
+("Lucas", "lucas@bandtec.com", "lucas123", 2),
+("Paulo", "paulo@bandtec.com", "paulo123", 3),
+("Joao", "joao@bandtec.com", "joao123", 4),
+("Natalia", "natalia@bandtec.com", "natalia123", 2),
+
+("Lucas", "lucas@bandtec.com", "lucas123", 4),
+("Paulo", "paulo@bandtec.com", "paulo123", 4),
+("Joao", "joao@bandtec.com", "joao123", 4),
+("Natalia", "natalia@bandtec.com", "natalia123", 4);
+
 insert into filme (titulo, genero, lancamento)
 values
 ("A Guerra do Amanhã", "ficcao", "2021-07-02"),
@@ -72,6 +84,10 @@ values
 
 select * from avaliacao;
 
+select count(fkFilme) as TotalFilme, fi.titulo from usuario us
+												join filme fi on us.fkFilme = fi.idFilme
+																		group by titulo order by TotalFilme desc;
+                                                                        
 select sum(nota) as TotalFilme, fi.titulo from avaliacao av
 												join filme fi on av.fkFilme = fi.idFilme
 																		where fkFilme = 2;
