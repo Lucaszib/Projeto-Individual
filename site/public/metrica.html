@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto | Omega</title>
 
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/dashboards.css">
     <script src="./js/funcoes.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -24,7 +22,7 @@
 <body onload="ranking()">
 <!-- <body onload="validarSessao()", onload="ranking()"> -->
 
-    <div class="janela">
+    <!-- <div class="janela">
         <div class="header-left">
             <h1>Projeto Omega</h1>
 
@@ -48,11 +46,14 @@
                 <h3>Sair</h3>
             </div>
 
-        </div>
+        </div> -->
 
         <div class="dash">
-            <div style="color: white;" id="total_ranking"></div>
+            <div id="total_ranking"></div>
         </div>
+    <div style="height: 10px;">
+            <canvas id="myChart"></canvas>
+    </div>
     </div>
 
 
@@ -62,13 +63,12 @@
 
 <script>
 
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
-
-    //verificar_autenticacao();
+    // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    var teste;
+    var dados = [];
+    var titulo = [];
 
 function ranking() {
-    // aguardar();
 
     fetch("/metrica/ranking", {
         method: "POST",
@@ -78,33 +78,71 @@ function ranking() {
         }).then(function (resposta) {
         
             if (resposta.ok) {
+
                 
                 resposta.json().then(function (resposta) {
                 console.log("Resultados encontrados: ", JSON.stringify(resposta));
                 console.log(resposta);
 
-                    
                 total_ranking.innerHTML = '';
-                for (var i = 0; i < resposta.length; i++) {
-                var avaliacao = resposta[i];
-                
-                // criando e manipulando elementos do HTML via JavaScript
-                total_ranking.innerHTML += `Avaliações: <b>${avaliacao.TotalFilme}</b>
-                                            Titulo:<b>${avaliacao.titulo}</b> <br><br>`;
-                }
 
-                // finalizarAguardar();
-                });
+                for (var i = 0; i < resposta.length; i++) {
+                
+                dados.push(Number(resposta[i].TotalFilme));
+                titulo.push(resposta[i].titulo);
+
+                total_ranking.innerHTML += `Avaliações: <b>${dados[i]}</b>
+                                            Titulo:<b>${titulo[i]}</b> <br><br>`;
+                }
+                gerarGrafico()
+                
+            });
             } else {
                 throw ('Houve um erro na API!');
             }
         }).catch(function (resposta) {
             console.error(resposta);
-            // finalizarAguardar();
+
         });
     }
 
-    // altere aqui como os dados serão exibidos
-    // e como são recuperados do BackEnd
+function gerarGrafico() {
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    teste = new Chart(ctx, {
+
+    type: 'pie',
+    data: {
+        labels: titulo,
+        datasets: [{
+            //label: '# of Votes',
+            data: dados,
+            backgroundColor: [
+                '#9BBB59',
+                '#4F81BD',
+                '#C0504D',
+                '#6622CC',
+                '#B59194',
+                '#255957',
+                '#F7C548',
+                '#3B0086'
+            ],
+            borderColor: [
+                '#9BBB59',
+                '#4F81BD',
+                '#C0504D',
+                '#6622CC',
+                '#B59194',
+                '#255957',
+                '#F7C548',
+                '#3B0086'
+            ],
+            borderWidth: 1
+        }]
+    },
+
+});
+
+}
 
 </script>
