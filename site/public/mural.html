@@ -31,7 +31,7 @@
             </div>
 
             <div class="btn-nav-white">
-                <a href="./ranking.html">
+                <a href="./metrica.html">
                     <h3>Gráficos</h3>
                 </a>
             </div>
@@ -191,7 +191,7 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-                    var feed = document.getElementById("feed_container");
+                    var feed = document.getElementById(`feed_container${json[i].idFilme});
                     feed.innerHTML = "";
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
@@ -205,7 +205,6 @@
                         var divButtons = document.createElement("div");
                         var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
-
 
                         spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
                         spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
