@@ -85,8 +85,7 @@
                         </select>
                         
                         <p>Filme preferido:</p>
-                        <input id="filme_cadastro" class="ipt_form" type="text" list="lista_filmes">
-                            <datalist class="ipt_form" id="lista_filmes">
+                            <select class="ipt_form" id="filme_cadastro">
                                 <option value="">Informe seu Filme favorito</option>
                                 <option value="0">Não tenho</option>
                                 <option value="1">A Guerra do Amanhã</option>
@@ -107,9 +106,7 @@
                                 <option value="16">Viuva Negra</option>
                                 <option value="17">Shang Chi: A Lenda dos Dez Anéis</option>
                                 <option value="18">Raya</option>
-                            </datalist>
-
-                            
+                            </select>
                     </div>
 
                     <div>
@@ -342,67 +339,6 @@
 </body>
 </html>
 <script>
-function visualizar() {
-    var senhaVar = senha_login.value;
-
-    console.log("FORM LOGIN: ", emailVar);
-    console.log("FORM SENHA: ", senhaVar);
-
-    // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-    if (emailVar == "" || senhaVar == "") {
-        window.alert("Preencha todos os campos para prosseguir!");
-        return false;
-    }
-
-    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-        window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-        return false;
-    }
-
-    fetch("/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
-
-        if (resposta.ok) {
-            console.log(resposta);
-
-            resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
-
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
-
-                window.location = "./dashboard/cards.html";
-                    
-
-            });
-
-        } else {
-
-            console.log("Houve um erro ao tentar realizar o login!");
-
-            resposta.text().then(texto => {
-                console.error(texto);
-            });
-        }
-
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-
-    return false;
-}
-
 function avaliar() {
 
     var filmeVar = filme_cadastro.value;

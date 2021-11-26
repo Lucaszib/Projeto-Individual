@@ -52,24 +52,52 @@ create TABLE avaliacao (
     primary key (fkFilme, fkUsuario)
 );
 
+insert into filme (titulo, genero)
+values
+("A Guerra do Amanhã", "aventura"),
+("Esquadrão Suicida", "acao"),
+("Eternos", "acao"),
+("Liga da Justiça: SnyderCut", "acao"),
+("Alerta Vermelho", "acao"),
+("Deadpool 2", "acao"),
+("Shazam", "geek"),
+("Nobody", "suspense"),
+("Lucca", "animacao"),
+("Mulher Maravilha", "acao"),
+("Madagascar", "animacao"),
+("Hulk", "acao"),
+("Vingadores", "acao"),
+("Esquadrão 6", "acao"),
+("Space Jam", "ficcao"),
+("Viuva Negra", "acao"),
+("Shang Chi: A Lenda dos Dez Anéis", "acao"),
+("Raya", "animacao");
+
 insert into usuario (nome, email, senha, fkFilme)
 values
-("Lucas", "lucas@bandtec.com", "lucas123", 2),
-("Paulo", "paulo@bandtec.com", "paulo123", 3),
-("Joao", "joao@bandtec.com", "joao123", 4),
-("Natalia", "natalia@bandtec.com", "natalia123", 2),
-
-("Lucas", "lucas@bandtec.com", "lucas123", 4),
-("Paulo", "paulo@bandtec.com", "paulo123", 4),
-("Joao", "joao@bandtec.com", "joao123", 4),
-("Natalia", "natalia@bandtec.com", "natalia123", 4);
-
-insert into filme (titulo, genero, lancamento)
-values
-("A Guerra do Amanhã", "ficcao", "2021-07-02"),
-("O Esquadrão Suicida", "acao", "2021-08-05"),
-("Eternos", "aventura", "2021-11-04"),
-("Liga da Justiça de Zack Snyder", "acao", "2021-03-18");
+("Lucas", "lucas@bandtec.com", "lucas123", 9),
+("Pedro", "pedro@bandtec.com", "pedro123", 8),
+("Joao", "joao@bandtec.com", "joao", 5),
+("Alex", "alex@bandtec.com", "alex", 3),
+("Cleber", "cleber@bandtec.com", "cleber", 9),
+("Cristina", "cristina@bandtec.com", "cristina", 4),
+("Julia", "julia@bandtec.com", "julia", 2),
+("Natalia", "natalia@bandtec.com", "natalia", 1),
+("Bianca", "bianca@bandtec.com", "bianca", 7),
+("Roger", "roger@bandtec.com", "roger", 5),
+("Rodrigo", "rodrigo@bandtec.com", "rodrigo", 6),
+("Helio", "helio@bandtec.com", "helio", 4),
+("Jessica", "jessica@bandtec.com", "jessica", 9),
+("Luiza", "luiza@bandtec.com", "luiza", 9),
+("Renata", "renata@bandtec.com", "renata", 1),
+("Leticia", "leticia@bandtec.com", "leticia", 9),
+("Karina", "karina@bandtec.com", "karina", 1),
+("Matheus", "matheus@bandtec.com", "matheus", 9),
+("Cristian", "cristian@bandtec.com", "cristian", 1),
+("Enzo", "enzo@bandtec.com", "enzo", 9),
+("Jorge", "jorge@bandtec.com", "jorge", 2),
+("Ana", "ana@bandtec.com", "ana", 3),
+("Marina", "marina@bandtec.com", "marina", 3);
 
 insert into avaliacao (fkFilme, fkUsuario, nota)
 values
@@ -82,15 +110,16 @@ values
 (2, 2, 1)
 ;
 
-select * from avaliacao;
+select * from usuario;
 
-select count(fkFilme) as TotalFilme, fi.titulo from usuario us
-												join filme fi on us.fkFilme = fi.idFilme
-																		group by titulo order by TotalFilme desc;
+SELECT COUNT(fkFilme) AS TotalFilme, fi.titulo FROM usuario us
+													JOIN filme fi ON us.fkFilme = fi.idFilme 
+														GROUP BY titulo ORDER BY TotalFilme DESC;
                                                                         
 select sum(nota) as TotalFilme, fi.titulo from avaliacao av
 												join filme fi on av.fkFilme = fi.idFilme
 																		where fkFilme = 2;
+                                                                        
 select * from usuario;
 select * from filme;
 
@@ -99,7 +128,6 @@ select us.nome, fi.titulo from usuario us
 
 UPDATE usuario SET senha = 'lucas123' WHERE email = 'lucas.lacerda@bandtec.com';
 
-        UPDATE usuario SET senha = md5('${senha}') WHERE email = '${email}';
-
+UPDATE usuario SET senha = md5('${senha}') WHERE email = '${email}';
 
 SET SQL_SAFE_UPDATES = 0;
