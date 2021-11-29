@@ -55,10 +55,14 @@
 .form_conteudo .div_logo_form {
     height: 40px;
     width: 100%;
-    margin: 60px auto 60px auto;
+    margin: 10px auto 100px auto;
     display: flex;
     justify-content: center;
     
+}
+
+.logo_form {
+    height: 160px;
 }
 
 .form_conteudo .div_ipt_form {

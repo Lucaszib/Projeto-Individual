@@ -22,7 +22,7 @@
 <!-- Header -->
     <div class="header">
         <div class="logo">
-            <a href="./index.html"><img class="img_logo" src="./css/src/logo_inicial.png" alt=""></a>
+            <a href="./index.html"><img class="img_logo" src="./css/src/Logo_secundaria.png" alt=""></a>
         </div>
 
         <div class="pesquisa">
@@ -138,9 +138,9 @@
 
         <div class="titulo">
             <select class="select_tops" id="">
-                <option value="">Tops do ano</option>
-                <option value="">Tops do mês</option>
-                <option value="">Tops da semana</option>
+                <option value="ano">Tops do ano</option>
+                <option value="mes">Tops do mês</option>
+                <option value="semana">Tops da semana</option>
             </select>
         </div>
         
@@ -251,7 +251,7 @@
             <div class="selecao" > Animações </div>
             <div class="primeira_linha">
                 <div class="box">
-                    <img class="img_sessoes" src="./css/src/conteudos/raya.jpg"alt="">
+                    <img id class="img_sessoes" src="./css/src/conteudos/raya.jpg"alt="">
                     <div class="avaliacao"> 
                         <div class="text_avaliacao"> Avaliação </div>
                         <img class="img_avaliacao" src="./css/src/star_avaliacao/star1.png" alt="">
@@ -339,69 +339,6 @@
 </body>
 </html>
 <script>
-function avaliar() {
-
-    var filmeVar = filme_cadastro.value;
-    var idusuarioVar = idUsuario
-
-    if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-
-        window.alert("Preencha todos os campos para prosseguir!");
-        if (nomeVar == "") {
-            console.log('nome está em branco')
-        }
-        if (emailVar == "") {
-            console.log('email está em branco')
-        }
-        if (senhaVar == "") {
-            console.log('senha está em branco')
-        }
-        if (confirmacaoSenhaVar == "") {
-            console.log('confirmacaoSenha está em branco')
-        }
-        return false;
-    }
-
-    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-        window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-        return false;
-    }
-
-    if (senhaVar != confirmacaoSenhaVar) {
-        window.alert("As senhas inseridas devem ser iguais para prosseguir!");
-        return false;
-    }
-
-    fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            nomeServer: nomeVar,
-            emailServer: emailVar,
-            senhaServer: senhaVar,
-            generoServer: generoVar,
-            filmeServer: filmeVar
-        })
-    }).then(function (resposta) {
-
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-            window.alert("Cadastro realizado com sucesso!");
-            window.location = "#abrirLogin";
-            limparFormulario();
-        } else {
-            throw ("Houve um erro ao tentar realizar o cadastro!");
-        }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-    });
-
-    return false;
-
-}
 function cadastrar() {
     // aguardar();
 

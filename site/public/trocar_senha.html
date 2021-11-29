@@ -24,7 +24,7 @@
 <!-- Header -->
     <div class="header">
         <div class="logo">
-            <a href="./index.html"><img class="img_logo" src="./css/src/logo_inicial.png" alt=""></a>
+            <a href="./index.html"><img class="img_logo" src="./css/src/Logo_secundaria.png" alt=""></a>
         </div>
         <div class="pesquisa">
             <input class="ipt_pesquisa" id="input_pesquisa" type="search" placeholder="Pesquise aqui">
@@ -90,14 +90,27 @@
                 <select id="filme_cadastro" class="ipt_form">
                     <datalist id="algo">
                         <option value="">Informe seu Filme favorito</option>
-                        <option value="0">Não tenho</option>
-                        <option value="1">A Guerra do Amanhã</option>
-                        <option value="2">Esquadrão Suicida</option>
-                        <option value="3">Eternos</option>
-                        <option value="4">Liga da Justiça: SnyderCut</option>
+                                <option value="0">Não tenho</option>
+                                <option value="1">A Guerra do Amanhã</option>
+                                <option value="2">Esquadrão Suicida</option>
+                                <option value="3">Eternos</option>
+                                <option value="4">Liga da Justiça: SnyderCut</option>
+                                <option value="5">Alerta Vermelho</option>
+                                <option value="6">Deadpool 2</option>
+                                <option value="7">Shazam</option>
+                                <option value="8">Nobody</option>
+                                <option value="9">Lucca</option>
+                                <option value="10">Mulher Maravilha</option>
+                                <option value="11">Madagascar</option>
+                                <option value="12">Hulk</option>
+                                <option value="13">Vingadores</option>
+                                <option value="14">Esquadrão 6</option>
+                                <option value="15">Space Jam</option>
+                                <option value="16">Viuva Negra</option>
+                                <option value="17">Shang Chi: A Lenda dos Dez Anéis</option>
+                                <option value="18">Raya</option>
                     </datalist>
                 </select>
-
                     
             </div>
 
@@ -156,9 +169,9 @@
                     </select>
 
                 </div>
+                <button class="botao_form" onclick="trocar()">Enviar</button>
             </div>
 
-            <button class="botao_form" onclick="trocar()">Enviar</button>
             
         </div>
     </div>
@@ -199,6 +212,9 @@
 </body>
 </html>
 <script>
+
+var cont = 0;
+
 function trocar() {
     // aguardar();
 
@@ -234,7 +250,7 @@ function trocar() {
         if (resposta.ok) {
             console.log(resposta);
 
-            resposta.json().then(json => {
+                resposta.json().then(json => {
                 console.log(json);
                 console.log(JSON.stringify(json));
 
@@ -247,13 +263,20 @@ function trocar() {
             });
 
         } else {
-
+            alert('Email ou filme inválidos')
+            cont ++;
             console.log("Houve um erro ao tentar realizar o login!");
 
+            if (cont >= 3) {
+            alert('Você atingiu o limite de tentativas hoje, volte mais tarde para tentar novamente')
+            filmeVar = '';
+            }
+    
             resposta.text().then(texto => {
-                console.error(texto);
+            console.error(texto);
             });
         }
+        
 
     }).catch(function (erro) {
         console.log(erro);
@@ -374,7 +397,7 @@ function entrar() {
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
                 
-                window.location = "./perfil.html";
+                window.location = "./metrica.html";
 
             });
 

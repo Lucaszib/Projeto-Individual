@@ -2,7 +2,6 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,69 +13,41 @@
 
     <!-- links dos icons e css -->
     <link rel="stylesheet" href="./css/matrix.css">
-    <!-- <link rel="stylesheet" href="./css/dashboards.css"> -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboards.css">
 
     <!-- scripts do Chart.js -->
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
 
 </head>
+<!-- <body onload="validarSessao()", onload="ranking()"> -->
 <body onload="ranking()">
 
 <!-- Header -->
     <div class="header">
         <div class="logo">
-            <a href="./index.html"><img class="img_logo" src="./css/src/logo_inicial.png" alt=""></a>
+            <a href="./index.html"><img class="img_logo" src="./css/src/Logo_secundaria.png" alt=""></a>
         </div>
 
         <div class="pesquisa">
             <input class="ipt_pesquisa" id="input_pesquisa" oninput="pesquisar()" type="search" placeholder="Pesquise aqui">
         </div>
 
-        <div class="links">
-            <ul class="nav-item"><a href="./index.html"> Inicio </a></ul>
-            <ul class="nav-item"><a href="#abrirLogin"> Login </a></ul>
-            <ul class="nav-item"><a href="#abrirCadastro" > Cadastro </a></ul>
+        <div class="btn-logout" onclick="limparSessao()">
+            <h3>Sair</h3>
         </div>
     </div>
-<!-- <body onload="validarSessao()", onload="ranking()"> -->
 
-    <!-- <div class="janela">
-        <div class="header-left">
-            <h1>Projeto Omega</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
-        </div> -->
-
+    <div class="metricas">
         <div class="dash">
-            <div id="total_ranking"></div>
+            <h3>Preferidos da Galera</h3>
+            <div id="total_ranking"> 
+            </div>
         </div>
-        <div style="height: 10px;">
-                <canvas height="100" id="myChart"></canvas>
+        <div class="grafico">
+            <canvas height="100" id="myChart"></canvas>
         </div>
+    
     </div>
-
 </body>
 
 </html>
@@ -111,8 +82,8 @@ function ranking() {
                 dados.push(Number(resposta[i].TotalFilme));
                 titulo.push(resposta[i].titulo);
 
-                total_ranking.innerHTML += `Avaliações: <b>${dados[i]}</b>
-                                            Titulo:<b>${titulo[i]}</b> <br><br>`;
+                total_ranking.innerHTML += ` Posição: ${i+1} Escolhido <b>${dados[i]}x</b> -- 
+                                            <b>${titulo[i]}</b> <br><br>`;
                 }
                 gerarGrafico()
                 

@@ -12,18 +12,27 @@
 }
 
 .trocar_conteudo {
-    position: relative;
     height: 100%;
 
 }
 
 .div_logo_trocar {
-    height: 50px;
-    margin-top: 50px;
-    margin-bottom: 15px;
+    height: 120px;
+
 
 }
 
 .ipt_form {
     margin-bottom: 20px;
+}
+
+.logo_form {
+    height: 150px;
+}
+
+.trocar_senha .div_ipt_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
