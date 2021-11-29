@@ -8,13 +8,12 @@
     <title>Projeto | Omega</title>
 
     <!-- link do script -->
-    <script src="./js/avaliacao.js" ></script>
-    <script src="./js/funcoes.js" ></script>
+    <script src="./js/funcoes.js"></script>
 
     <!-- links dos icons e css -->
     <link rel="stylesheet" href="./css/matrix.css">
     <link rel="stylesheet" href="./css/dashboards.css">
-
+    <link rel="shortcut icon" href="css/src/icon.png" type="image/x-icon">
     <!-- scripts do Chart.js -->
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
 
@@ -32,9 +31,12 @@
             <input class="ipt_pesquisa" id="input_pesquisa" oninput="pesquisar()" type="search" placeholder="Pesquise aqui">
         </div>
 
+        <div id="b_usuario" class="usuario_logado"></div>
+
         <div class="btn-logout" onclick="limparSessao()">
             <h3>Sair</h3>
         </div>
+
     </div>
 
     <div class="metricas">
@@ -54,8 +56,8 @@
 
 <script>
 
-    // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    var teste;
+    b_usuario.innerHTML = `Bem vindo, ${sessionStorage.NOME_USUARIO}`;
+
     var dados = [];
     var titulo = [];
 
@@ -109,31 +111,31 @@ function gerarGrafico() {
             //label: '# of Votes',
             data: dados,
             backgroundColor: [
-                '#9BBB59',
-                '#4F81BD',
-                '#C0504D',
-                '#6622CC',
-                '#B59194',
-                '#255957',
-                '#3B0086',
-                '#EA9010',
-                '#279AF1',
-                '#29BF12',
-                '#153B50'
+                '#9BBB5992',
+                '#4F81BD92',
+                '#C0504D92',
+                '#6622CC92',
+                '#B5919492',
+                '#25595792',
+                '#3B008692',
+                '#EA901092',
+                '#279AF192',
+                '#29BF1292',
+                '#153B5092'
                 
             ],
             borderColor: [
-                '#9BBB59',
-                '#4F81BD',
-                '#C0504D',
-                '#6622CC',
-                '#B59194',
-                '#255957',
-                '#3B0086',
-                '#EA9010',
-                '#279AF1',
-                '#29BF12',
-                '#153B50'
+                '#9BBB5992',
+                '#4F81BD92',
+                '#C0504D92',
+                '#6622CC92',
+                '#B5919492',
+                '#25595792',
+                '#3B008692',
+                '#EA901092',
+                '#279AF192',
+                '#29BF1292',
+                '#153B5092'
             ],
             borderWidth: 1
         }]
