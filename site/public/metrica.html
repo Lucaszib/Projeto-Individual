@@ -79,6 +79,13 @@ function ranking() {
 
                 total_ranking.innerHTML = '';
 
+                resposta.forEach(valores => {
+                    dados.push(Number(valores.TotalFilme));
+                    titulo.push(valores.titulo);
+                });
+
+                
+
                 for (var i = 0; i < resposta.length; i++) {
                 
                 dados.push(Number(resposta[i].TotalFilme));

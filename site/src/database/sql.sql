@@ -1,23 +1,9 @@
 /* para workbench - local - desenvolvimento */
-CREATE DATABASE if not exists omega;
+create DATABASE omega;
 USE omega;
 
 CREATE TABLE filme (
     idFilme INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(80),
-    genero VARCHAR(30),
-    lancamento date
-);
-
-CREATE TABLE serie (
-    idSerie INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(80),
-    genero VARCHAR(30),
-    lancamento date
-);
-
-CREATE TABLE animacao (
-    idAnimacao INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(80),
     genero VARCHAR(30),
     lancamento date
@@ -32,24 +18,7 @@ create TABLE usuario (
     desde datetime,
     fkFilme INT,
 		FOREIGN KEY (fkFilme)
-			REFERENCES filme (idfilme),
-	fkSerie INT,
-		FOREIGN KEY (fkSerie)
-			REFERENCES serie (idSerie),
-	fkAnimacao INT,
-		FOREIGN KEY (fkAnimacao)
-			REFERENCES animacao (idAnimacao)
-);
-
-create TABLE avaliacao (
-    fkFilme INT,
-		foreign key (fkFilme)
-			references filme (idFilme),
-    fkUsuario int,
-		foreign key (fkUsuario)
-			references usuario (idUsuario),
-    nota int,
-    primary key (fkFilme, fkUsuario)
+			REFERENCES filme (idfilme)
 );
 
 insert into filme (titulo, genero)
@@ -99,31 +68,17 @@ values
 ("Ana", "ana@bandtec.com", "ana", 3),
 ("Marina", "marina@bandtec.com", "marina", 3);
 
-insert into avaliacao (fkFilme, fkUsuario, nota)
-values
-(3, 1, 5),
-(2, 1, 4),
-(1, 1, 3),
-
-(4, 2, 4),
-(1, 2, 3),
-(2, 2, 1)
-;
-
 select * from usuario;
 
 SELECT COUNT(fkFilme) AS TotalFilme, fi.titulo FROM usuario us
 													JOIN filme fi ON us.fkFilme = fi.idFilme 
 														GROUP BY titulo ORDER BY TotalFilme DESC;
-                                                                        
-select sum(nota) as TotalFilme, fi.titulo from avaliacao av
-												join filme fi on av.fkFilme = fi.idFilme
-																		where fkFilme = 2;
+																	
                                                                         
 select * from usuario;
 select * from filme;
 
-select us.nome, fi.titulo from usuario us 
+select us.idUsuario, fi.titulo from usuario us 
 					join filme fi on us.fkFilme = fi.idFilme;
 
 UPDATE usuario SET senha = 'lucas123' WHERE email = 'lucas.lacerda@bandtec.com';
